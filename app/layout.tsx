@@ -1,10 +1,8 @@
-import Nav from '@/components/Nav'
-import './globals.css'
-import type { Metadata } from 'next'
-import Footer from '@/components/Footer'
+import './globals.css';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "What's Poppin",
+  title: "What's Poppin!",
   description: 'Search for the most popular music, any genre, anywhere',
 }
 
@@ -15,14 +13,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-        <body className='mx-12 md:mx-20'>
-            <Nav />
-            <div className='bg-slate-400 rounded-md h-0.5'></div>
+        <body>
+            <div className='fixed w-full h-screen bg-gradient-to-br from-slate-400 to-emerald-400 -z-10'></div>
             <main>
                 {children}
             </main>
-            <div className='bg-slate-400 rounded-md h-0.5'></div>
-            <Footer />
         </body>
     </html>
   )
