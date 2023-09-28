@@ -4,4 +4,4 @@ export type Service = {
     title: string;
     logo: string | null;
     link: string;
-};
+} | null;
