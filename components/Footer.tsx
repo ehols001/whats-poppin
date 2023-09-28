@@ -1,11 +1,12 @@
 import React from 'react'
 
-const Footer = () => {
-  return (
-    <section className='flex justify-between p-8 bg-slate-100'>
-        Footer
-    </section>
-  )
+export const Footer = () => {
+    return (
+        <div className='flex items-center my-8'>
+            <div className='flex flex-col text-center text-sm'>
+                <p>Designed and developed by <span className='font-bold'>Evan Holster</span></p>
+                <p>using Next.js, React, Node.js, TypeScript, Prisma, Tailwind</p>
+            </div>
+        </div>
+    )
 }
-
-export default Footer;
