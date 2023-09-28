@@ -1,9 +1,9 @@
-import { StaticImageData } from "next/image";
+/* import { StaticImageData } from "next/image";
 
 export type Service = {
     serviceId: string;
     title: string;
-    logo: StaticImageData;
+    logo: string;
     link: string;
-    parent: string | null;
-}
+    parent?: string | null;
+} */
