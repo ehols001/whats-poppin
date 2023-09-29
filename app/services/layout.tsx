@@ -8,16 +8,15 @@ export default function ServicesLayout({
 }) {
 
     return (
-        <div className='flex flex-col items-center min-h-screen mx-12 md:mx-20'>
+        <div className='flex flex-col min-h-screen mx-12 md:mx-20'>
             <div className='flex flex-col items-center w-full'>
                 <Nav />
-                <div className='bg-black w-full rounded-md h-0.5'></div>
             </div>
             <main>
                 {children}
             </main>
             <div className='flex flex-col items-center w-full'>
-                <div className='bg-black w-full rounded-md h-0.5'></div>
+                <div className='bg-sky-900/30 w-full rounded-md h-0.5'></div>
                 <Footer />
             </div>
         </div>

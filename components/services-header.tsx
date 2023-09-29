@@ -14,7 +14,7 @@ export default function ServicesHeader({ user }: { user: any }) {
     const segment = useSelectedLayoutSegment();
 
     return (
-        <div className='flex flex-col bg-slate-100 w-full p-8'>
+        <div className='flex flex-col bg-gradient-to-b from-slate-200 to-slate-500/40 w-full p-8'>
             <div className='flex justify-between'>
                 <ServiceLogo serviceId={`${segment}`} />
 
