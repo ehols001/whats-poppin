@@ -5,7 +5,10 @@ export function ServiceLogo({ serviceId }: { serviceId: string }) {
 
     return (
         <div>
-            <Link href={`https://${serviceId === 'spotify' ? 'open.' : 'music.'}${serviceId}.com`}>
+            <Link
+                href={`https://${serviceId === 'spotify' ? 'open.' : 'music.'}${serviceId}.com`}
+                target='_blank'
+            >
                 <Image
                     src={`/${serviceId}.png`}
                     width={160}

@@ -25,7 +25,7 @@ export default function ServicesHeader({ user }: { user: any }) {
                         <button onClick={() => signIn()} className='flex items-center justify-center bg-black text-white h-9 mx-4 px-3 rounded-xl'>Sign In</button>
                     )} */}
 
-                    <Link href='/services/service-settings'>
+                    <Link href='/services/service-settings' replace={true}>
                         <div className='w-9 h-9 flex items-center justify-center bg-slate-400 rounded-xl'>
                             <FontAwesomeIcon icon={faGear} size='xl' />
                         </div>

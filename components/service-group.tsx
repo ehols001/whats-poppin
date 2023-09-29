@@ -8,7 +8,7 @@ export const ServiceGroup = ({ services }: { services: Service[] }) => {
         <div className='flex flex-col p-4'>
             {services.map((service) => (
                 <div className='m-2 border-2 border-gray-400 rounded-xl'>
-                    <Link href={`/services/${service?.serviceId}`}>
+                    <Link href={`/services/${service?.serviceId}`} replace={true}>
                         <Image
                             src={`/${service?.logo}`}
                             width={250}
