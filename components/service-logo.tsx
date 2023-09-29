@@ -1,30 +1,16 @@
-'use client'
-
 import Link from 'next/link';
 import Image from 'next/image';
 
-import type { Service } from '@/lib/types';
-
-export function ServiceLogo({ service }: { service: Service }) {
-
-    let default_service = {
-        id: 1,
-        serviceId: 'spotify',
-        title: 'Spotify',
-        logo: 'spotify.png',
-        link: 'https://open.spotify.com'
-    };
-
-    let current_service = service !== null ? service : default_service;
+export function ServiceLogo({ serviceId }: { serviceId: string }) {
 
     return (
         <div>
-            <Link href={current_service.link}>
+            <Link href={`https://${serviceId === 'spotify' ? 'open.' : 'music.'}${serviceId}.com`}>
                 <Image
-                    src={`/${current_service.logo}`}
+                    src={`/${serviceId}.png`}
                     width={160}
                     height={160}
-                    alt={current_service.title}
+                    alt={serviceId}
                 />
             </Link>
         </div>

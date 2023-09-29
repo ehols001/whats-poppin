@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link';
 import React from 'react';
 
@@ -5,20 +7,16 @@ import { signIn, signOut } from 'next-auth/react';
 import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ServiceLogo } from './service-logo';
-import { Service } from '@/lib/types';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
-export default function ServicesHeader({ 
-    user,
-    service,
-}: { 
-    user: any;
-    service: Service;
-}) {
+export default function ServicesHeader({ user }: { user: any }) {
+
+    const segment = useSelectedLayoutSegment();
 
     return (
         <div className='flex flex-col bg-slate-100 w-full p-8'>
             <div className='flex justify-between'>
-                <ServiceLogo service={service} />
+                <ServiceLogo serviceId={`${segment}`} />
 
                 <div className='flex items-center justify-between'>
                     {/* {user ? (
