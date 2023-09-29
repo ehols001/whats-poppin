@@ -8,7 +8,7 @@ export default function ServicesLayout({
 }) {
 
     return (
-        <div className='flex flex-col min-h-screen mx-12 md:mx-20'>
+        <div className='flex flex-col w-[80%] lg:w-[70%] xl:w-[60%] min-h-screen mx-auto'>
             <div className='flex flex-col items-center w-full'>
                 <Nav />
             </div>
