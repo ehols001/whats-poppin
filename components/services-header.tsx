@@ -1,15 +1,24 @@
 'use client'
 
-import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { signIn, signOut } from 'next-auth/react';
 import { faGear } from '@fortawesome/free-solid-svg-icons/faGear';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ServiceLogo } from './service-logo';
 import { useSelectedLayoutSegment } from 'next/navigation';
+import { Service } from '@/lib/types';
+import { SettingsModal } from './settings-modal';
 
-export default function ServicesHeader({ user }: { user: any }) {
+export default function ServicesHeader({
+    user,
+    services
+}: {
+    user: any;
+    services: Service[];
+}) {
+
+    const [modalOpen, setModalOpen] = useState(false);
 
     const segment = useSelectedLayoutSegment();
 
@@ -25,14 +34,24 @@ export default function ServicesHeader({ user }: { user: any }) {
                         <button onClick={() => signIn()} className='flex items-center justify-center bg-black text-white h-9 mx-4 px-3 rounded-xl'>Sign In</button>
                     )} */}
 
-                    <Link href='/services/service-settings' replace={true}>
+                    <button onClick={() => setModalOpen(!modalOpen)}>
                         <div className='w-9 h-9 flex items-center justify-center bg-slate-400 rounded-xl'>
                             <FontAwesomeIcon icon={faGear} size='xl' />
                         </div>
-                    </Link>
+                    </button>
                 </div>
 
             </div>
+
+            <div className={`${modalOpen ? 'fixed top-0 left-0 w-full h-screen bg-black/40' : ''}`} onClick={() => setModalOpen(false)}></div>
+            
+            <SettingsModal
+                services={services}
+                parent={'services-header'}
+                isOpen={modalOpen}
+                close={() => { setModalOpen(false) }}
+            />
+
 
             {/* <h1>Top {numSongs} {genre} Songs</h1> */}
 

@@ -2,13 +2,19 @@ import { Service } from '@/lib/types';
 import Link from 'next/link';
 import Image from 'next/image';
 
-export const ServiceGroup = ({ services }: { services: Service[] }) => {
+export const ServiceGroup = ({
+    services,
+    close,
+}: {
+    services: Service[];
+    close: any;
+}) => {
 
     return (
         <div className='flex flex-col p-4'>
-            {services.map((service) => (
-                <div className='m-2 border-2 border-gray-400 rounded-xl'>
-                    <Link href={`/services/${service?.serviceId}`} replace={true}>
+            {services.map((service, key) => (
+                <div className='m-2 border-2 border-gray-400 rounded-xl' key={key}>
+                    <Link href={`/services/${service?.serviceId}`} replace={true} onClick={close}>
                         <Image
                             src={`/${service?.logo}`}
                             width={250}

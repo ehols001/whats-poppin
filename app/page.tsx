@@ -10,7 +10,7 @@ export default async function LandingPage() {
     return (
         <div className='flex flex-col items-center min-h-screen'>
             <MainLogo />
-            <SettingsModal services={services} parent={'landing'} />
+            <SettingsModal services={services} parent={'landing'} isOpen={true} close='' />
             <Footer />
         </div>
     );
