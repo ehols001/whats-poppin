@@ -1,4 +1,3 @@
-//import { getTopArtistsByGenre } from "@/app/api/(services)/content/spotifyCalls";
 import { getAccessToken, getTopArtistsByGenre } from "@/app/api/(services)/content/spotify-api";
 
 export async function generateMetadata({ params }: { params: { serviceId: string }}) {
@@ -9,12 +8,11 @@ export async function generateMetadata({ params }: { params: { serviceId: string
 
 export default async function Service({ params }: { params: { serviceId: string }}) {
 
-    //const token = await getAccessToken();
-    const topArtists = await getTopArtistsByGenre({ genre: 'metalcore', limit: '1' });
-
+    const topArtists = await getTopArtistsByGenre({ genre: 'metalcore', limit: '2' });
+    //console.log(topArtists.artists);
     return (
         <div className="flex flex-col p-6">
-            <p>{params.serviceId}</p>
+            <p>{topArtists.artists.items[0].name}</p>
         </div>
     );
 }

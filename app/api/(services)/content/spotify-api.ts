@@ -1,6 +1,6 @@
 import 'server-only';
 
-function generateRandomString({ length }: { length: number }) {
+/* function generateRandomString({ length }: { length: number }) {
     let text = '';
     let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
@@ -9,7 +9,7 @@ function generateRandomString({ length }: { length: number }) {
     }
 
     return text;
-}
+} */
 
 export async function getAccessToken() {
     const access_token = await fetch('https://accounts.spotify.com/api/token', {
@@ -18,18 +18,9 @@ export async function getAccessToken() {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-    })
-        .then((response) => {
-            return response.json();
-        })
-        /* .then((data) => {
-            console.log('token', data);
-        }) */
-        .catch((error) => {
-            console.error('Something went wrong!', error);
-        });
+    });
 
-    return access_token;
+    return await access_token.json();
 }
 
 export async function getTopArtistsByGenre({
@@ -42,21 +33,12 @@ export async function getTopArtistsByGenre({
 
     const token = await getAccessToken();
 
-    const response = await fetch(`https://api.spotify.com/v1/search?q=genre%3${genre}&type=artist&limit=${limit}`, {
+    const response = await fetch(`https://api.spotify.com/v1/search?q=genre%3D${genre}&type=artist&limit=${limit}`, {
         method: 'GET',
         headers: {
-            'Authorization': `${token.token_type} ${token.access_token}`,
-        }
-    })
-        .then((response) => {
-            return response.json();
-        })
-        .then((data) => {
-            console.log('artist data', data);
-        })
-        .catch((error) => {
-            console.error('Something went wrong!', error);
-        });
-
-    return response;
+            'Authorization': `Bearer ${token.access_token}`,
+        },
+    });
+    
+    return await response.json();
 }
