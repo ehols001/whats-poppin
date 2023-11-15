@@ -35,7 +35,7 @@ export default function ServicesHeader({
                     )} */}
 
                     <button onClick={() => setModalOpen(!modalOpen)}>
-                        <div className='w-9 h-9 flex items-center justify-center bg-slate-400 rounded-xl'>
+                        <div className='w-9 h-9 flex items-center justify-center bg-gradient-radial from-slate-300/40 via-slate-400/40 to-slate-500/40 transition-colors hover:bg-slate-100/50 rounded-xl'>
                             <FontAwesomeIcon icon={faGear} size='xl' />
                         </div>
                     </button>
